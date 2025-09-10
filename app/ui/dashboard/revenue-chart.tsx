@@ -1,5 +1,5 @@
-import { generateYAxis } from '@/app/lib/utils';
-import { CalendarIcon } from '@heroicons/react/24/outline';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { lusitana } from '@/app/ui/fonts';
 import { Revenue } from '@/app/lib/definitions';
 
