@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+     "clean": "powershell Remove-Item -Recurse -Force .next -ErrorAction Ignore",
     "build": "next build",
     "dev": "next dev --turbopack",
     "start": "next start",
@@ -8,6 +9,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@prisma/client": "^6.16.0",
     "@tailwindcss/forms": "^0.5.10",
     "autoprefixer": "10.4.20",
     "bcrypt": "^5.1.1",
@@ -29,12 +31,17 @@
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
     "eslint": "^9.35.0",
-    "eslint-config-next": "15.5.2"
+    "eslint-config-next": "15.5.2",
+    "node": "^20.19.5",
+    "prisma": "^6.16.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "bcrypt",
       "sharp"
+    ],
+    "ignoredBuiltDependencies": [
+      
     ]
   }
 }
