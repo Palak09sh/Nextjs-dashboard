@@ -6,7 +6,16 @@ import { Lusitana } from "next/font/google";
 import { InvoicesTableSkeleton } from "@/app/ui/skeletons";
 import { Suspense } from 'react';
 import { lusitana } from "@/app/ui/fonts";
-export default async function Page(){
+export default async function Page(props:{
+searchParams?: Promise<{
+  query?: string;
+  page?:string;
+}>;
+}) {
+  const searchParams = await props.searchParams;
+const query = searchParams?.query || '';
+const currentPage = Number(searchParams?.page) || 1;
+
   return(
     <div className="w-full">
       <div className="flex w-full items-center jsutify-between">
@@ -15,9 +24,13 @@ export default async function Page(){
       <div className="mt-4 flex items center justify-between gap-2 md:mt-8">
         <Search placeholder="Search invoices..." />
         <CreateInvoice />
+            </div>
+            <Suspense key = {query + currentPage} fallback = {<InvoicesTableSkeleton />}>
+            <Table query = {query} currentPage={currentPage} />
+            </Suspense>
         <div className="mt-5 flex w-full justify-center">
-          
-        </div>
+
+    
       </div>
     </div>
   )
