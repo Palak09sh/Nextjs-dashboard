@@ -3,6 +3,7 @@ import Breadcrumbs from '@/app/ui/invoices/breadcrumbs'
 import { fetchCustomers } from '@/app/lib/data'
 export default async function Page() {
     // page is a Server Component that fetches customers and passes it to the <Form> component
+    
     const customers = await fetchCustomers()
     return(
         <main>
